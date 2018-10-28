@@ -6,7 +6,7 @@ from flask import Flask, request, session, g, redirect, url_for, abort,  render_
 
 from contextlib import closing  # 引入closing函数
 
-
+import os.path
 
 # configs
 
