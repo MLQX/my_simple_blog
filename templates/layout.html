@@ -10,6 +10,7 @@
     <div class="metanav">
         {% if session.get('logined_in') %}
             <a href="{{ url_for('logout')}}">登出</a>
+            <a href="{{ url_for('init') }}">清空日志记录</a>
             {% else %}
             <a href="{{ url_for('login')}}">登录</a>
         {% endif %}
