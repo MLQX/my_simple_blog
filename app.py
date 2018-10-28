@@ -13,16 +13,17 @@ def init_db():
     with closing(connect_db()) as db:
         with app.open_resource('create_table.sql') as f:
             # print(type(f.read()))
-            print(f.read())
+            # print(f.read())
             db.cursor().executescript(str(f.read(),encoding='utf-8'))
+            # db.cursor().executescript(f.read(4))
         db.commit()
-
-
 
 
 # 链接数据库
 def connect_db():
     return sqlite3.connect(DATABASE)
+
+# init_db()
 
 
 @app.before_request
@@ -34,6 +35,8 @@ def after_request(response):
     g.db.close()
     # print(type (response))
     return response
+
+
 
 
 
@@ -108,6 +111,9 @@ def logout():
     session.pop("logined_in",None)
     flash("You are logged out")
     return redirect(url_for('show_entries'))
+
+
+
 
 
 if __name__ == '__main__':

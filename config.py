@@ -14,8 +14,8 @@ DATABASE = './db/blog.db'
 
 DEBUG = True
 
-SECRET_KEY = 'zwb55217421@163.com'
+SECRET_KEY = 'administrator'
 
 USERNAME = 'ruoan'
 
-PASSWORD = SECRET_KEY[:3]
+PASSWORD = SECRET_KEY[:5]
