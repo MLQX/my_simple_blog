@@ -23,7 +23,13 @@ def init_db():
 def connect_db():
     return sqlite3.connect(DATABASE)
 
-# init_db()
+
+# 如果没有数据库文件， 则创建
+if not os.path.exists("./db/blog.db"):
+    print("-->")
+    init_db()
+
+
 
 
 @app.before_request
