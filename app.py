@@ -37,6 +37,11 @@ def after_request(response):
 
 
 
+@app.route("/init_db")
+def init():
+    init_db()
+    flash('数据库初始化成功')
+    return redirect(url_for("show_entries"))
 
 @app.route('/')
 def show_entries():
