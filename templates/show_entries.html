@@ -21,8 +21,8 @@
     <ul class="entries">
         {% for entry in entries %}
 <li>
-<a>{{ entry.title }}</a>&nbsp;<a href="#">修改</a>&nbsp;&nbsp;<a href="#">删除文章</a><br>
-<!-- {{ entry.createtime}}&nbsp;<a href="#">修改内容</a> -->
+<a href="#" style="color:cornflowerblue;">{{ entry.title }}</a>&nbsp;&nbsp;{{ entry.createtime|safe}}&nbsp;<a href="#">修改</a>&nbsp;&nbsp;<a href="#">删除文章</a><br>
+
 </li>
             {% else %}
             <li><em>你当前还没有创建过任何文章.</em></li>
