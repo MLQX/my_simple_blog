@@ -20,9 +20,11 @@
 
     <ul class="entries">
         {% for entry in entries %}
-            <li><h2>{{ entry.title }}</h2>{{ entry.content | safe }}</li>
+<li>
+<h2>{{ entry.title }</h2> <a href="#">修改标题</a><a href="#">删除文章</a>{{ entry.content | safe }}<a href="#">修改内容</a>
+</li>
             {% else %}
-            <li><em>Unbelievable. No ENTRIES here so far.</em></li>
+            <li><em>你当前还没有创建过任何文章.</em></li>
         {% endfor %}
         
     </ul>
