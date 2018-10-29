@@ -4,10 +4,10 @@
     {% if session.logined_in %}
         <form action="{{ url_for('add_entry') }}" method="post" class="add-entry">
             <dl>
-                <dt>Title:</dt>
+                <dt>标题:</dt>
                 <dd><input type="text" size="35" name="title"></dd>
-                <dt>Text:</dt>
-                <dd><textarea  rows="5" cols="40" name="content"></textarea></dd>
+                <dt>文本:</dt>
+                <dd><textarea  rows="25" cols="60" name="content"></textarea></dd>
                 <dd><input type="submit" value="发表" id="mybtn"></dd>
             </dl>
         </form>
@@ -21,11 +21,12 @@
     <ul class="entries">
         {% for entry in entries %}
 <li>
+{{ entry.id }}.&nbsp;
 <a href="#" style="color:cornflowerblue;">{{ entry.title }}</a>&nbsp;&nbsp;{{ entry.createtime|safe}}&nbsp;<a href="#">修改</a>&nbsp;&nbsp;<a href="#">删除文章</a><br>
 
 </li>
             {% else %}
-            <li><em>你当前还没有创建过任何文章.</em></li>
+            <li><em>你当前还没有创建过任何手记.</em></li>
         {% endfor %}
         
     </ul>

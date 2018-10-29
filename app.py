@@ -56,9 +56,9 @@ def init():
 def show_entries():
     # init_db()
 
-    cur = g.db.execute("select title, createtime from entries order by id desc")
+    cur = g.db.execute("select id,title, createtime from entries order by id desc")
 
-    entries = [dict(title=row[0],createtime=row[1]) for row in cur.fetchall()]
+    entries = [dict(id=row[0],title=row[1],createtime=row[2]) for row in cur.fetchall()]
 
 
     # if request.method == 'POST':
@@ -102,7 +102,7 @@ def login():
             error = 'Invalid password'
         else:
             session['logined_in'] = True
-            flash('You were logged in')
+            flash('您已登入')
             return redirect(url_for('show_entries')) ####
     session.pop("logined_in",None)  # 删除
     return render_template('login.html', error=error)
@@ -115,7 +115,7 @@ def login():
 @app.route("/logout")
 def logout():
     session.pop("logined_in",None)
-    flash("You are logged out")
+    flash("您已登出")
     return redirect(url_for('show_entries'))
 
 
