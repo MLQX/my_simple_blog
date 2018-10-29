@@ -26,7 +26,7 @@ def connect_db():
 
 # 如果没有数据库文件， 则创建
 if not os.path.exists("./db/blog.db"):
-    print("-->")
+    print("初始化数据库中...")
     init_db()
 
 
@@ -56,9 +56,9 @@ def init():
 def show_entries():
     # init_db()
 
-    cur = g.db.execute("select title, content from entries order by id desc")
+    cur = g.db.execute("select title, createtime from entries order by id desc")
 
-    entries = [dict(title=row[0],content=row[1]) for row in cur.fetchall()]
+    entries = [dict(title=row[0],createtime=row[1]) for row in cur.fetchall()]
 
 
     # if request.method == 'POST':
@@ -124,4 +124,4 @@ def logout():
 
 if __name__ == '__main__':
 
-    app.run()
+    app.run(debug=True)
